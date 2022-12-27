@@ -1,97 +1,94 @@
 const { CityService } = require('../services/index');
 
-/*
- * To create an api that creates city , the meathod will be POST request and data will come in req.body 
-*/ 
-
 const cityService = new CityService();
 
-const create = async (req,res) =>{
+const create = async (req, res) => {
     try {
         const city = await cityService.createCity(req.body);
         return res.status(201).json({
-            data : city,
-            success : true,
-            message : 'Successfully created a city',
-            err : {}
-        })
+            data: city,
+            success: true,
+            message: 'Successfully created a city',
+            err: {}
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            data : {},
+            data: {},
             success: false,
             message: 'Not able to create a city',
-            err : error
-        })
+            err: error
+        });
     }
-
 }
-
-const destroy = async (req,res) =>{
+// DELETE. -> /city/:id
+const destroy = async (req, res) => {
     try {
         const response = await cityService.deleteCity(req.params.id);
         return res.status(200).json({
-            data : response,
-            success : true,
-            message : 'Successfully deleted a city',
-            err : {}
-        })
-        
+            data: response,
+            success: true,
+            message: 'Successfully deleted a city',
+            err: {}
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            data : {},
+            data: {},
             success: false,
-            message: 'Not able to delete a city',
-            err : error
-        })
+            message: 'Not able to delete the city',
+            err: error
+        });
     }
 }
 
-const get = async (req,res) =>{
+// GET -> /city/:id
+const get = async (req, res) => {
     try {
         const response = await cityService.getCity(req.params.id);
         return res.status(200).json({
-            data : response,
-            success : true,
-            message : 'Successfully fetched a city',
-            err : {}
-        })
+            data: response,
+            success: true,
+            message: 'Successfully fetched a city',
+            err: {}
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            data : {},
+            data: {},
             success: false,
-            message: 'Not able to fetch a city',
-            err : error
-        })
+            message: 'Not able to get the city',
+            err: error
+        });
     }
 }
 
-const update = async (req,res) =>{
+// Patch -> /city/:id -> req.body
+const update = async (req, res) => {
     try {
-        const response = await cityService.updateCity(req.params.id,req.body);
+        const response = await cityService.updateCity(req.params.id, req.body);
         return res.status(200).json({
-            data : response,
-            success : true,
-            message : 'Successfully updated a city',
-            err : {}
-        })
+            data: response,
+            success: true,
+            message: 'Successfully fetched a city',
+            err: {}
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            data : {},
+            data: {},
             success: false,
-            message: 'Not able to update a city',
-            err : error
-        })
+            message: 'Not able to update the city',
+            err: error
+        });
     }
 }
+
 
 
 module.exports = {
     create,
     destroy,
     get,
-    update
+    update,
 }
