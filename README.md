@@ -37,3 +37,11 @@ and then execute
   - A flight belongs to an airplane but one airplane can be used as multiple flights
   - A city has many airport but one airport can belong to a city
   - One airport has many flights but one flight belongs to one airport.
+
+
+  ## Tables
+
+  ### City - id,name,created_at, updated_at
+
+  ### Airport -> id,name,address,city_id,created_at,updated_at
+  (City has many airports and Airport belong to one city ) [one to many]
