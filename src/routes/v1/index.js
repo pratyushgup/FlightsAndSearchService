@@ -19,7 +19,7 @@ router.patch('/city/:id',CityController.update);
 // For flights
 router.post('/flights',FlightController.create);
 router.get('/flights',FlightController.getAll);
-
+router.get('/flights/:id',FlightController.get)
 
 //For Airports
 
