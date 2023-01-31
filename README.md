@@ -45,3 +45,12 @@ and then execute
 
   ### Airport -> id,name,address,city_id,created_at,updated_at
   (City has many airports and Airport belong to one city ) [one to many]
+  
+=======================================================================================================================================================================
+# Other repository related to this project-
+1. Auth Service
+   "https://github.com/pratyushgup/Auth_service"
+2. Booking Service
+   "https://github.com/pratyushgup/AirticketBookingService"
+3. Reminder Service
+   "https://github.com/pratyushgup/ReminderService"
